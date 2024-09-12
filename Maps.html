@@ -22,9 +22,6 @@
             flex-direction: column;
             padding: 20px;
         }
-        h1 {
-            margin-top: 0;
-        }
         .iframe-container {
             flex-grow: 1;
             position: relative;
@@ -46,13 +43,12 @@
             font-size: 24px;
         }
         .controls {
-            margin-top: 10px;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
     <main>
-        <h1>系統地圖</h1>
         <div class="iframe-container">
             <div class="loader">載入中...</div>
             <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycbyFylVRrb7kxLoCxtHyjcfdO4258YHhNRjdg_7bfq0m7HSg61Ite74gLG1wZ5tIIPFG/exec" frameborder="0" onload="this.previousElementSibling.style.display='none';"></iframe>
