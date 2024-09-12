@@ -1,4 +1,3 @@
-<!--Maps.html -->
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -7,64 +6,20 @@
     <title>地圖 - 移抽維運運輸系統</title>
     <link rel="stylesheet" href="styles.css">
     <script src="loadNav.js"></script>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        main {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-        .iframe-container {
-            flex-grow: 1;
-            position: relative;
-            min-height: 500px;
-        }
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .loader {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-        }
-        .controls {
-            margin-top: 5px;
-        }
-    </style>
 </head>
 <body>
-    <main>
-        <div class="iframe-container">
-            <div class="loader">載入中...</div>
-            <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycbyFylVRrb7kxLoCxtHyjcfdO4258YHhNRjdg_7bfq0m7HSg61Ite74gLG1wZ5tIIPFG/exec" frameborder="0" onload="this.previousElementSibling.style.display='none';"></iframe>
-        </div>
-        <div class="controls">
-            <button onclick="reloadFrame()">重新載入地圖</button>
-            <button onclick="toggleFullscreen()">全屏顯示</button>
-        </div>
-    </main>
-
+    <div class="iframe-container">
+        <div class="loader">載入中...</div>
+        <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycbyFylVRrb7kxLoCxtHyjcfdO4258YHhNRjdg_7bfq0m7HSg61Ite74gLG1wZ5tIIPFG/exec" onload="this.previousElementSibling.style.display='none';"></iframe>
+    </div>
+    <div class="controls">
+        <button onclick="reloadFrame()">重新載入地圖</button>
+        <button onclick="toggleFullscreen()">全屏顯示</button>
+    </div>
     <script>
         function reloadFrame() {
             document.getElementById('mapFrame').src = document.getElementById('mapFrame').src;
         }
-
         function toggleFullscreen() {
             var elem = document.getElementById('mapFrame');
             if (!document.fullscreenElement) {
@@ -88,4 +43,3 @@
     </script>
 </body>
 </html>
-
