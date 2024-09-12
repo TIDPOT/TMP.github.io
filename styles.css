@@ -7,61 +7,62 @@ body {
     font-size: clamp(8px, 1vw + 7px, 16px);
 }
 
-nav {
+#menuToggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#sideNav {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
     background-color: #333;
-    color: white;
-    padding: 0.5rem;
+    transition: 0.3s;
+    z-index: 1000;
+    overflow-y: auto;
 }
 
-nav ul {
+#sideNav.open {
+    left: 0;
+}
+
+#sideNav ul {
     list-style-type: none;
-    padding: 0;
+    padding: 20px;
     margin: 0;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0.3em;
-    padding: 0 0.5em;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
+#sideNav ul li {
+    margin-bottom: 15px;
 }
 
-nav ul li:last-child {
-    border-right: none;
-}
-
-nav ul li a {
+#sideNav ul li a {
     color: white;
     text-decoration: none;
+    display: block;
+    padding: 5px 0;
 }
 
-/* 其餘的 CSS 保持不變 */
+main {
+    padding: 1rem;
+    margin-left: 0;
+    transition: 0.3s;
+}
+
+main.shifted {
+    margin-left: 250px;
+}
+
+/* 其他現有的樣式保持不變 */
 
 @media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+    main.shifted {
+        margin-left: 0;
     }
-
-    nav ul li {
-        margin: 0.2em;
-        padding: 0.2em 0;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li:last-child {
-        border-bottom: none;
-    }
-
-    /* 其餘的媒體查詢內容保持不變 */
-}
-
-@media (max-width: 320px) {
-    /* 小屏幕的媒體查詢保持不變 */
 }
