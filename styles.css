@@ -1,16 +1,16 @@
-/* styles.css*/ 
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    font-size: clamp(10px, 1vw + 8px, 16px);
+    font-size: clamp(8px, 1vw + 7px, 16px);
 }
 
 nav {
     background-color: #333;
     color: white;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 nav ul {
@@ -19,10 +19,18 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 nav ul li {
     display: inline;
+    margin: 0.3em;
+    padding: 0 0.5em;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+nav ul li:last-child {
+    border-right: none;
 }
 
 nav ul li a {
@@ -30,19 +38,30 @@ nav ul li a {
     text-decoration: none;
 }
 
-main {
-    padding: 2rem;
+/* 其餘的 CSS 保持不變 */
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.2em;
+        padding: 0.2em 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    /* 其餘的媒體查詢內容保持不變 */
 }
 
-h1 {
-    color: #333;
+@media (max-width: 320px) {
+    /* 小屏幕的媒體查詢保持不變 */
 }
-
-#map {
-    border: 1px solid #ddd;
-}
-
-
-
-
-
