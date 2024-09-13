@@ -22,6 +22,7 @@
             flex-direction: column;
             padding: 10px;
             box-sizing: border-box;
+            position: relative; /* 為絕對定位的按鈕提供參考 */
         }
         .iframe-container {
             flex: 1;
@@ -37,11 +38,30 @@
         .controls {
             margin-top: 10px;
         }
+        .view-report-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .view-report-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <main>
         <h3>抽水機維護運輸系統</h3>
+        
+        <button class="view-report-button" onclick="window.location.href='https://tidpot.github.io/TMP/ReportResult.html'">
+            查看回報結果
+        </button>
         
         <div class="iframe-container">
             <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycby5JI2LmvfTso741opPXgCdHWMI9EGCE12_cdJQ0_BNbmOKgJRColpTiV1VJYWn4aOOCQ/exec" frameborder="0"></iframe>
