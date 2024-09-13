@@ -27,7 +27,7 @@
         .iframe-container {
             flex: 1;
             position: relative;
-            min-height: 300px; /* 設置一個最小高度 */
+            min-height: 300px;
         }
         iframe {
             position: absolute;
@@ -36,9 +36,19 @@
             width: 100%;
             height: 100%;
             border: none;
+            transform-origin: 0 0;
         }
         .controls {
             margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .font-control {
+            display: flex;
+            align-items: center;
+        }
+        .font-control button {
+            margin: 0 5px;
         }
     </style>
 </head>
@@ -48,10 +58,21 @@
             <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycbw1LF5yCX-NY-069_g8CausVNTMZL3gO3-Weua9ie9SDRjNC1EYQ8iGEYzue1Tcgd0w/exec" frameborder="0"></iframe>
         </div>
         <div class="controls">
+            <div class="font-control">
+                <button onclick="adjustFontSize(-0.1)">縮小字體</button>
+                <button onclick="adjustFontSize(0.1)">放大字體</button>
+            </div>
             <button onclick="toggleFullscreen()">全屏顯示</button>
         </div>
     </main>
     <script>
+        let currentScale = 1;
+
+        function adjustFontSize(delta) {
+            currentScale += delta;
+            currentScale = Math.max(0.5, Math.min(currentScale, 1.5)); // 限制縮放範圍
+            document.getElementById('mapFrame').style.transform = `scale(${currentScale})`;
+        }
 
         function toggleFullscreen() {
             var elem = document.getElementById('mapFrame');
