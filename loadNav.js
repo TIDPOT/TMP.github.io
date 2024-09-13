@@ -1,15 +1,6 @@
 // loadNav.js
 document.addEventListener('DOMContentLoaded', function() {
-    // 獲取當前頁面的路徑
-    var path = window.location.pathname;
-    var navPath = '/nav.html'; // 假設 nav.html 在根目錄
-
-    // 如果當前頁面不在根目錄，調整 navPath
-    if (path.includes('/Returns/')) {
-        navPath = '../nav.html';
-    }
-
-    fetch(navPath)
+    fetch('nav.html')
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
