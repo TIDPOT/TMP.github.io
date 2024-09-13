@@ -8,7 +8,7 @@
     <script src="loadNav.js"></script>
     <style>
         html, body {
-            height: 95%;
+            height: 100%;
             margin: 0;
             padding: 0;
         }
@@ -31,7 +31,7 @@
         }
         iframe {
             flex: 1;
-            width: 80%;
+            width: 100%;
             border: none;
         }
         .controls {
@@ -41,7 +41,7 @@
 </head>
 <body>
     <main>
-        <h1>抽水機維護運輸系統</h1>
+        <h3>抽水機維護運輸系統</h3>
         
         <div class="iframe-container">
             <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycbw-Lr-QK1QgvAIcgb7iyG_fSRhxaBItmt8X1ohINAeceJXezF6l97kShYrfZ1_KspHAsw/exec" frameborder="0"></iframe>
@@ -50,7 +50,26 @@
         </div>
     </main>
     <script>
-
+        function toggleFullscreen() {
+            var elem = document.getElementById('mapFrame');
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        }
     </script>
 </body>
 </html>
