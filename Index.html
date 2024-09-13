@@ -1,17 +1,56 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>抽水機維運運輸系統</title>
+    <title>抽水機維護運輸系統-首頁</title>
     <link rel="stylesheet" href="styles.css">
     <script src="loadNav.js"></script>
+    <style>
+        html, body {
+            height: 95%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .iframe-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0; /* 允許容器縮小到小於其內容 */
+        }
+        iframe {
+            flex: 1;
+            width: 80%;
+            border: none;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <main>
-        <h1>歡迎來到移抽維運運輸系統</h1>
-        <p>這裡是系統的首頁。您可以使用上方的導航欄訪問不同的功能頁面。</p>
+        <h1>抽水機維護運輸系統</h1>
+        
+        <div class="iframe-container">
+            <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycbw-Lr-QK1QgvAIcgb7iyG_fSRhxaBItmt8X1ohINAeceJXezF6l97kShYrfZ1_KspHAsw/exec" frameborder="0"></iframe>
+        </div>
+        <div class="controls">
+        </div>
     </main>
+    <script>
+
+    </script>
 </body>
 </html>
