@@ -6,87 +6,71 @@ body {
     line-height: 1.6;
 }
 
-nav {
-    background-color: #333;
-    color: white;
-    padding: 0.5em 0.3em;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-nav ul {
+.nav-list {
     list-style-type: none;
+    margin: 0;
     padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    overflow: hidden;
+    background-color: #333;
 }
 
-nav ul li {
+.nav-list li {
+    float: left;
+}
+
+.nav-list li a, .dropbtn {
     display: inline-block;
-    margin: 0;
-    padding: 0 0.5em;
-    border-right: 1px solid rgba(255, 255, 255, 0.3); /* 添加淺色分隔線 */
-}
-
-nav ul li:last-child {
-    border-right: none; /* 移除最後一項的右邊框 */
-}
-
-nav ul li a {
     color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    font-size: 0.9em;
 }
 
-.nav-title {
-    font-size: 1em;
-    font-weight: bold;
+.nav-list li a:hover, .dropdown:hover .dropbtn {
+    background-color: #111;
 }
 
-main {
-    padding: 2rem;
+.dropdown {
+    display: inline-block;
 }
 
-h1 {
-    color: #333;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-#map {
-    border: 1px solid #ddd;
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* 媒體查詢：針對中等大小的屏幕 */
 @media screen and (max-width: 768px) {
-    nav ul li a {
+    .nav-list li a, .dropbtn {
         font-size: 0.8em;
-    }
-
-    .nav-title {
-        font-size: 0.9em;
-    }
-
-    nav ul li {
-        padding: 0 0.3em;
+        padding: 10px 12px;
     }
 }
 
 /* 針對小型移動設備 */
 @media screen and (max-width: 480px) {
-    nav ul li a {
+    .nav-list li a, .dropbtn {
         font-size: 0.7em;
-    }
-
-    .nav-title {
-        font-size: 0.8em;
-    }
-
-    nav ul li {
-        padding: 0 0.2em;
-    }
-
-    nav {
-        padding: 0.3em 0.2em;
+        padding: 8px 10px;
     }
 }
