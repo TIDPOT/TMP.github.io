@@ -1,6 +1,6 @@
 // loadNav.js
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('nav.html')
+    fetch('https://tidpot.github.io/TMP/nav.html')
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
