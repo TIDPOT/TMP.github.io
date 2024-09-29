@@ -7,12 +7,33 @@
     <link rel="stylesheet" href="styles.css">
     <script src="loadNav.js"></script>
     <style>
+        /* 重置默認邊距和內邊距 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
             background-color: #1a1a1a;
         }
+
+        /* 導航列樣式 */
+        #nav-placeholder {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* 主要內容容器 */
+        .main-container {
+            padding: 20px;
+            margin-top: 60px; /* 根據您的導航列高度調整 */
+        }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -21,6 +42,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .btn {
             display: flex;
             justify-content: center;
@@ -35,22 +57,17 @@
             transition: all 0.3s;
             text-align: center;
         }
-        .btn:nth-child(1) {
-            background-color: #1E3A8A; /* 深藍色 */
-        }
-        .btn:nth-child(2) {
-            background-color: #7E22CE; /* 深紫色 */
-        }
-        .btn:nth-child(3) {
-            background-color: #065F46; /* 深綠色 */
-        }
-        .btn:nth-child(4) {
-            background-color: #9D174D; /* 深紅色 */
-        }
+
+        .btn:nth-child(1) { background-color: #1E3A8A; }
+        .btn:nth-child(2) { background-color: #7E22CE; }
+        .btn:nth-child(3) { background-color: #065F46; }
+        .btn:nth-child(4) { background-color: #9D174D; }
+
         .btn:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 15px rgba(255,255,255,0.2);
         }
+
         @media (max-width: 768px) {
             .btn {
                 width: 100%;
@@ -59,14 +76,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://tidpot.github.io/TMP/ExternalReturns.html" class="btn">外部回報</a>
-        <a href="https://tidpot.github.io/TMP/Daily.html" class="btn">日常回報</a>
-        <a href="https://tidpot.github.io/TMP/Emergency.html" class="btn">應變期間</a>
-        <a href="https://tidpot.github.io/TMP/Planned.html" class="btn">計畫排修</a>
+    <div id="nav-placeholder"></div>
+
+    <div class="main-container">
+        <div class="container">
+            <a href="https://tidpot.github.io/TMP/ExternalReturns.html" class="btn">外部回報</a>
+            <a href="https://tidpot.github.io/TMP/Daily.html" class="btn">日常回報</a>
+            <a href="https://tidpot.github.io/TMP/Emergency.html" class="btn">應變期間</a>
+            <a href="https://tidpot.github.io/TMP/Planned.html" class="btn">計畫排修</a>
+        </div>
     </div>
+
     <script>
-        // 這裡可以添加任何需要的 JavaScript 代碼
+        // 載入導航列
+        $(function(){
+            $("#nav-placeholder").load("nav.html");
+        });
     </script>
 </body>
 </html>
