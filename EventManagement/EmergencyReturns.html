@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>異常回報(應變)</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="loadNav.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .iframe-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0; /* 允許容器縮小到小於其內容 */
+        }
+        iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="iframe-container">
+            <iframe id="mapFrame" src="https://script.google.com/macros/s/AKfycbzhw_3RTTRtxbyDD_GTBqcMDi1vNhxQiod_8le-nA2xB7TJhCFtMM01mfHWr8NY60ef/exec" frameborder="0"></iframe>
+        </div>
+        <div class="controls">
+            <button onclick="toggleFullscreen()">全屏顯示</button>
+        </div>
+    </main>
+    <script>
+        function toggleFullscreen() {
+            var elem = document.getElementById('mapFrame');
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
